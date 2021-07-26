@@ -51,11 +51,11 @@ interface Logger {
 }
 
 class MovieService {
-  logger: Logger;
+  private logger: Logger;
   constructor(logger: Logger) {
     this.logger = logger;
   }
-  public getMovies() {
+  public getMovies(): Promise<String[]> {
     return Promise.resolve(['Jaws', 'Spider-Man']).catch(err => {
       this.logger.log(err);
       return [];
