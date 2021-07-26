@@ -5,7 +5,15 @@ enum Fruit {
   KIWI = 'kiwi',
   APPLE = 'apple'
 }
-const fruitBasket = {
+
+type FruitBasket = {
+  banana: Number;
+  orange: Number;
+  kiwi: Number;
+  apple: Number;
+};
+
+const fruitBasket: FruitBasket = {
   banana: 2,
   orange: 3,
   kiwi: 2,
