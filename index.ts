@@ -6,12 +6,7 @@ enum Fruit {
   APPLE = 'apple'
 }
 
-type FruitBasket = {
-  banana: Number;
-  orange: Number;
-  kiwi: Number;
-  apple: Number;
-};
+type FruitBasket = { [fruit in Fruit]: number };
 
 const fruitBasket: FruitBasket = {
   banana: 2,
@@ -24,16 +19,16 @@ const fruitBasket: FruitBasket = {
 type Gender = 'male' | 'female';
 
 class Person {
-  private name: String;
+  private name: string;
   private gender: Gender;
-  private age: Number;
-  private likes: String[];
+  private age: number;
+  private likes: string[];
 
   public constructor(
-    name: String,
+    name: string,
     gender: Gender,
-    age: Number,
-    likes: String[]
+    age: number,
+    likes: string[]
   ) {
     this.name = name;
     this.gender = gender;
@@ -41,7 +36,7 @@ class Person {
     this.likes = likes;
   }
 
-  public introduce(): String {
+  public introduce(): string {
     const { name, gender, age, likes } = this;
     const goodLookingMap = new Map([['male', 'handsome'], ['female', 'cute']]);
     return `
@@ -63,7 +58,7 @@ class MovieService {
   constructor(logger: Logger) {
     this.logger = logger;
   }
-  public getMovies(): Promise<String[]> {
+  public getMovies(): Promise<string[]> {
     return Promise.resolve(['Jaws', 'Spider-Man']).catch(err => {
       this.logger.log(err);
       return [];
